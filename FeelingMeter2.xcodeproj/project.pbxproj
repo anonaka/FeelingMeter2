@@ -9,12 +9,19 @@
 /* Begin PBXBuildFile section */
 		0BEEFC1F1C70010D00668A8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEFC1E1C70010D00668A8A /* AppDelegate.swift */; };
 		0BEEFC211C70010D00668A8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEFC201C70010D00668A8A /* ViewController.swift */; };
-		0BEEFC241C70010D00668A8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BEEFC221C70010D00668A8A /* Main.storyboard */; };
 		0BEEFC271C70010D00668A8A /* FeelingMeter2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEFC251C70010D00668A8A /* FeelingMeter2.xcdatamodeld */; };
 		0BEEFC291C70010D00668A8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BEEFC281C70010D00668A8A /* Assets.xcassets */; };
 		0BEEFC2C1C70010D00668A8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BEEFC2A1C70010D00668A8A /* LaunchScreen.storyboard */; };
 		0BEEFC371C70010D00668A8A /* FeelingMeter2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEFC361C70010D00668A8A /* FeelingMeter2Tests.swift */; };
 		0BEEFC421C70010D00668A8A /* FeelingMeter2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEFC411C70010D00668A8A /* FeelingMeter2UITests.swift */; };
+		0BEEFC501C70015200668A8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BEEFC4F1C70015200668A8A /* Main.storyboard */; };
+		0BEEFC561C70016D00668A8A /* FmGraphRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEFC511C70016D00668A8A /* FmGraphRootViewController.swift */; };
+		0BEEFC571C70016D00668A8A /* FmGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEFC521C70016D00668A8A /* FmGraphView.swift */; };
+		0BEEFC581C70016D00668A8A /* FmHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEFC531C70016D00668A8A /* FmHomeView.swift */; };
+		0BEEFC591C70016D00668A8A /* FmHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEFC541C70016D00668A8A /* FmHomeViewController.swift */; };
+		0BEEFC5A1C70016D00668A8A /* FmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEFC551C70016D00668A8A /* FmModel.swift */; };
+		0BEEFC5C1C70017C00668A8A /* jump2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0BEEFC5B1C70017C00668A8A /* jump2.mp3 */; };
+		0BEEFC5E1C70018900668A8A /* coin4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0BEEFC5D1C70018900668A8A /* coin4.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +45,6 @@
 		0BEEFC1B1C70010D00668A8A /* FeelingMeter2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeelingMeter2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BEEFC1E1C70010D00668A8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BEEFC201C70010D00668A8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0BEEFC231C70010D00668A8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0BEEFC261C70010D00668A8A /* FeelingMeter2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeelingMeter2.xcdatamodel; sourceTree = "<group>"; };
 		0BEEFC281C70010D00668A8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BEEFC2B1C70010D00668A8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +55,14 @@
 		0BEEFC3D1C70010D00668A8A /* FeelingMeter2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeelingMeter2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BEEFC411C70010D00668A8A /* FeelingMeter2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingMeter2UITests.swift; sourceTree = "<group>"; };
 		0BEEFC431C70010D00668A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BEEFC4F1C70015200668A8A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0BEEFC511C70016D00668A8A /* FmGraphRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FmGraphRootViewController.swift; sourceTree = "<group>"; };
+		0BEEFC521C70016D00668A8A /* FmGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FmGraphView.swift; sourceTree = "<group>"; };
+		0BEEFC531C70016D00668A8A /* FmHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FmHomeView.swift; sourceTree = "<group>"; };
+		0BEEFC541C70016D00668A8A /* FmHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FmHomeViewController.swift; sourceTree = "<group>"; };
+		0BEEFC551C70016D00668A8A /* FmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FmModel.swift; sourceTree = "<group>"; };
+		0BEEFC5B1C70017C00668A8A /* jump2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jump2.mp3; sourceTree = "<group>"; };
+		0BEEFC5D1C70018900668A8A /* coin4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coin4.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +115,17 @@
 			children = (
 				0BEEFC1E1C70010D00668A8A /* AppDelegate.swift */,
 				0BEEFC201C70010D00668A8A /* ViewController.swift */,
-				0BEEFC221C70010D00668A8A /* Main.storyboard */,
 				0BEEFC281C70010D00668A8A /* Assets.xcassets */,
+				0BEEFC511C70016D00668A8A /* FmGraphRootViewController.swift */,
+				0BEEFC521C70016D00668A8A /* FmGraphView.swift */,
+				0BEEFC531C70016D00668A8A /* FmHomeView.swift */,
+				0BEEFC541C70016D00668A8A /* FmHomeViewController.swift */,
+				0BEEFC5D1C70018900668A8A /* coin4.mp3 */,
+				0BEEFC551C70016D00668A8A /* FmModel.swift */,
+				0BEEFC4F1C70015200668A8A /* Main.storyboard */,
 				0BEEFC2A1C70010D00668A8A /* LaunchScreen.storyboard */,
 				0BEEFC2D1C70010D00668A8A /* Info.plist */,
+				0BEEFC5B1C70017C00668A8A /* jump2.mp3 */,
 				0BEEFC251C70010D00668A8A /* FeelingMeter2.xcdatamodeld */,
 			);
 			path = FeelingMeter2;
@@ -232,9 +253,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BEEFC501C70015200668A8A /* Main.storyboard in Resources */,
+				0BEEFC5E1C70018900668A8A /* coin4.mp3 in Resources */,
+				0BEEFC5C1C70017C00668A8A /* jump2.mp3 in Resources */,
 				0BEEFC2C1C70010D00668A8A /* LaunchScreen.storyboard in Resources */,
 				0BEEFC291C70010D00668A8A /* Assets.xcassets in Resources */,
-				0BEEFC241C70010D00668A8A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +283,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BEEFC271C70010D00668A8A /* FeelingMeter2.xcdatamodeld in Sources */,
+				0BEEFC591C70016D00668A8A /* FmHomeViewController.swift in Sources */,
 				0BEEFC211C70010D00668A8A /* ViewController.swift in Sources */,
+				0BEEFC581C70016D00668A8A /* FmHomeView.swift in Sources */,
+				0BEEFC5A1C70016D00668A8A /* FmModel.swift in Sources */,
+				0BEEFC561C70016D00668A8A /* FmGraphRootViewController.swift in Sources */,
+				0BEEFC571C70016D00668A8A /* FmGraphView.swift in Sources */,
 				0BEEFC1F1C70010D00668A8A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +325,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0BEEFC221C70010D00668A8A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0BEEFC231C70010D00668A8A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0BEEFC2A1C70010D00668A8A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
