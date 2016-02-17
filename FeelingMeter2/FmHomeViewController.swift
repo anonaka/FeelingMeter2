@@ -46,6 +46,11 @@ class FmHomeViewController: UIViewController, UIScrollViewDelegate {
         gr.direction = UISwipeGestureRecognizerDirection.Left
         self.fmHomeView.addGestureRecognizer(gr)
         
+        // add doub tap gesgure
+        let gr2 = UITapGestureRecognizer(target: self, action: "doubleTapGestuer:")
+        gr2.numberOfTapsRequired = 2
+        self.fmHomeView.addGestureRecognizer(gr2)
+        
         fmScrollView.contentSize = fmHomeView.frame.size
         fmScrollView.backgroundColor = UIColor.whiteColor()
         
@@ -56,7 +61,15 @@ class FmHomeViewController: UIViewController, UIScrollViewDelegate {
         fmScrollView.addSubview(self.fmHomeView)
     }
 
-    func swipeLeftGesture(gestureRecognizer: UITapGestureRecognizer){
+    func doubleTapGestuer(gestureRecognizer: UITapGestureRecognizer){
+        addFeeling()
+    }
+    
+    func swipeLeftGesture(gestureRecognizer: UISwipeGestureRecognizer){
+        addFeeling()
+    }
+    
+    private func addFeeling(){
         let i = fmHomeView.getItemNumber(fmScrollView.contentOffset)
         fmModel.addFeeling(i)
         AudioServicesPlaySystemSound(seletFeelingSoundId)
