@@ -37,6 +37,11 @@ class FmGraphRootViewController : UIViewController
         setupViews()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        setupViews()
+    }
+    
     private func setupViews(){
         fmYAxisView?.removeFromSuperview()
         fmGraphScrollView?.removeFromSuperview()

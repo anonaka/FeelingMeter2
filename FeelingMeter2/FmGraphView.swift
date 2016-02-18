@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class TestDataSource: FmGraphDataSource {
     let model = FmModel()
     
@@ -94,15 +93,15 @@ class FmGraphContentView : UIView {
         
         super.init(frame: frame)
         self.backgroundColor = UIColor.whiteColor()
+        drawAllGraphPointsAdnLines()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     
     override func drawRect(rect: CGRect) {
-       
-        drawAllGraphPointsAdnLines()
         drawXAxis()
         drawHolizontalLines()
     }
@@ -161,36 +160,67 @@ class FmGraphContentView : UIView {
     
     private func drawGraphPoint(center: CGPoint){
         let radius = CGFloat(10.0)
-        
-        let circle = UIBezierPath(arcCenter: center,
+        let myLayer = CAShapeLayer()
+        self.layer.addSublayer(myLayer)
+
+        let endCircle = UIBezierPath(arcCenter: center,
             radius: radius,
             startAngle: 0.0,
             endAngle: CGFloat(2.0) * CGFloat(M_PI),
             clockwise: true)
-        // 塗りつぶし色の設定
-        UIColor.grayColor().setFill()
-        // 内側の塗りつぶし
-        circle.fill()
-        // stroke 色の設定
-        UIColor.grayColor().setStroke()
-        // ライン幅
-        circle.lineWidth = 2
-        // 描画
-        circle.stroke()
+ 
+        let startY = self.frame.height - xAxisHeight
+        let startCircle = UIBezierPath(arcCenter: CGPointMake(center.x,startY),
+            radius: radius,
+            startAngle: 0.0,
+            endAngle: CGFloat(2.0) * CGFloat(M_PI),
+            clockwise: true)
+
+        myLayer.path = startCircle.CGPath
+        myLayer.lineWidth = 2
+        myLayer.strokeColor = UIColor.redColor().CGColor
+        myLayer.fillColor = UIColor.redColor().CGColor
+        let animation = CABasicAnimation(keyPath: "path")
+        
+        animation.duration = 1.0
+        animation.fromValue = myLayer.path
+        animation.toValue = endCircle.CGPath
+        
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut) // animation curve is Ease Out
+        animation.fillMode = kCAFillModeBoth // keep to value after finishing
+        animation.removedOnCompletion = false // don't remove after finishing
+        
+        myLayer.addAnimation(animation, forKey: animation.keyPath)
     }
     
     private func drawGraphLinesFrom(p1:CGPoint,p2:CGPoint,color:UIColor = UIColor.blackColor() ,width: CGFloat = 1){
-        let line = UIBezierPath();
-        // 起点
-        line.moveToPoint(p1);
-        // 帰着点
-        line.addLineToPoint(p2);
-        // 色の設定
-        color.setStroke()
-        // ライン幅
-        line.lineWidth = width
-        // 描画
-        line.stroke();
+        let myLayer = CAShapeLayer()
+        self.layer.addSublayer(myLayer)
+       
+        let endLine = UIBezierPath();
+        endLine.moveToPoint(p1);
+        endLine.addLineToPoint(p2);
+        
+        let startLine = UIBezierPath();
+        startLine.moveToPoint(CGPointMake(p1.x, CGFloat(0)))
+        startLine.addLineToPoint(CGPointMake(p2.x, CGFloat(0)))
+
+        myLayer.path = startLine.CGPath
+        myLayer.lineWidth = 2
+        myLayer.strokeColor = UIColor.redColor().CGColor
+        myLayer.fillColor = UIColor.redColor().CGColor
+        
+        let animation = CABasicAnimation(keyPath: "path")
+        
+        animation.duration = 1.0
+        animation.fromValue = myLayer.path
+        animation.toValue = endLine.CGPath
+        
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut) // animation curve is Ease Out
+        animation.fillMode = kCAFillModeBoth // keep to value after finishing
+        animation.removedOnCompletion = false // don't remove after finishing
+        
+        myLayer.addAnimation(animation, forKey: animation.keyPath)
     }
 }
 
