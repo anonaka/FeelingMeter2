@@ -27,7 +27,8 @@ class FmHomeViewController: UIViewController, UIScrollViewDelegate {
     private func setupViews(){
         self.view.backgroundColor = UIColor.whiteColor()
         
-        // setup sound
+        // TODO: setup sound must be done in the app init time
+        
         let seletFeelingSoundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("coin4", ofType: "mp3")!)
         AudioServicesCreateSystemSoundID(seletFeelingSoundURL, &seletFeelingSoundId)
  

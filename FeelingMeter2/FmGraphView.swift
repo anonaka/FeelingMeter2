@@ -182,6 +182,8 @@ class FmGraphContentView : UIView {
         myLayer.lineWidth = 2
         myLayer.strokeColor = graphColor
         myLayer.fillColor = graphColor
+        
+        // TODO: more refactor animation
         let animation = CABasicAnimation(keyPath: "path")
         
         animation.duration = duration
@@ -214,7 +216,7 @@ class FmGraphContentView : UIView {
         myLayer.lineWidth = width
         myLayer.strokeColor = graphColor
         myLayer.fillColor = graphColor
-        
+        // TODO: more refactor animation
         if doAimation {
             myLayer.path = startLine.CGPath
             let animation = CABasicAnimation(keyPath: "path")
