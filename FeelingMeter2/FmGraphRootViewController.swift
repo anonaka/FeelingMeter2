@@ -34,12 +34,17 @@ class FmGraphRootViewController : UIViewController
     }
     
     override func viewDidLayoutSubviews() {
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         setupViews()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
         setupViews()
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)  {
     }
     
     private func setupViews(){
