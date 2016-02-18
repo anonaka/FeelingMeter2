@@ -80,6 +80,7 @@ class FmGraphContentView : UIView {
     let cellHeight: CGFloat
     let xAxisHeight: CGFloat
     let cellWidth: CGFloat
+    let graphColor = UIColor.grayColor().CGColor
 
     init(frame: CGRect, dataSource: FmGraphDataSource, geometryInfo: FmGraphRootViewController.FmGraphGeometryInfo){
         fmGraphDataSource = dataSource
@@ -115,7 +116,7 @@ class FmGraphContentView : UIView {
             let newPoint = CGPointMake(x, y)
             drawGraphPoint(newPoint)
             if oldPoint != nil {
-                drawGraphLinesFrom(oldPoint, p2: newPoint,color: UIColor.grayColor(),width: 5)
+                drawGraphLinesFrom(oldPoint, p2: newPoint,color: UIColor.grayColor(),width: 5, doAimation: true)
             }
             oldPoint = newPoint
         }
@@ -178,8 +179,8 @@ class FmGraphContentView : UIView {
 
         myLayer.path = startCircle.CGPath
         myLayer.lineWidth = 2
-        myLayer.strokeColor = UIColor.redColor().CGColor
-        myLayer.fillColor = UIColor.redColor().CGColor
+        myLayer.strokeColor = graphColor
+        myLayer.fillColor = graphColor
         let animation = CABasicAnimation(keyPath: "path")
         
         animation.duration = 1.0
@@ -193,7 +194,11 @@ class FmGraphContentView : UIView {
         myLayer.addAnimation(animation, forKey: animation.keyPath)
     }
     
-    private func drawGraphLinesFrom(p1:CGPoint,p2:CGPoint,color:UIColor = UIColor.blackColor() ,width: CGFloat = 1){
+    private func drawGraphLinesFrom(p1:CGPoint,p2:CGPoint,color:UIColor = UIColor.blackColor() ,
+            width: CGFloat = 1,
+            doAimation: Bool = false)
+    {
+        let startY = self.frame.height - xAxisHeight
         let myLayer = CAShapeLayer()
         self.layer.addSublayer(myLayer)
        
@@ -202,25 +207,29 @@ class FmGraphContentView : UIView {
         endLine.addLineToPoint(p2);
         
         let startLine = UIBezierPath();
-        startLine.moveToPoint(CGPointMake(p1.x, CGFloat(0)))
-        startLine.addLineToPoint(CGPointMake(p2.x, CGFloat(0)))
+        startLine.moveToPoint(CGPointMake(p1.x, startY))
+        startLine.addLineToPoint(CGPointMake(p2.x, startY))
 
-        myLayer.path = startLine.CGPath
-        myLayer.lineWidth = 2
-        myLayer.strokeColor = UIColor.redColor().CGColor
-        myLayer.fillColor = UIColor.redColor().CGColor
+        myLayer.lineWidth = width
+        myLayer.strokeColor = graphColor
+        myLayer.fillColor = graphColor
         
-        let animation = CABasicAnimation(keyPath: "path")
+        if doAimation {
+            myLayer.path = startLine.CGPath
+            let animation = CABasicAnimation(keyPath: "path")
         
-        animation.duration = 1.0
-        animation.fromValue = myLayer.path
-        animation.toValue = endLine.CGPath
-        
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut) // animation curve is Ease Out
-        animation.fillMode = kCAFillModeBoth // keep to value after finishing
-        animation.removedOnCompletion = false // don't remove after finishing
-        
-        myLayer.addAnimation(animation, forKey: animation.keyPath)
+            animation.duration = 1.0
+            animation.fromValue = myLayer.path
+            animation.toValue = endLine.CGPath
+            
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut) // animation curve is Ease Out
+            animation.fillMode = kCAFillModeBoth // keep to value after finishing
+            animation.removedOnCompletion = false // don't remove after finishing
+            myLayer.addAnimation(animation, forKey: animation.keyPath)
+         
+        } else {
+            myLayer.path = endLine.CGPath
+        }
     }
 }
 
