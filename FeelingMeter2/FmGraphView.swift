@@ -81,6 +81,7 @@ class FmGraphContentView : UIView {
     let xAxisHeight: CGFloat
     let cellWidth: CGFloat
     let graphColor = UIColor.grayColor().CGColor
+    let duration = 0.8
 
     init(frame: CGRect, dataSource: FmGraphDataSource, geometryInfo: FmGraphRootViewController.FmGraphGeometryInfo){
         fmGraphDataSource = dataSource
@@ -183,7 +184,7 @@ class FmGraphContentView : UIView {
         myLayer.fillColor = graphColor
         let animation = CABasicAnimation(keyPath: "path")
         
-        animation.duration = 1.0
+        animation.duration = duration
         animation.fromValue = myLayer.path
         animation.toValue = endCircle.CGPath
         
@@ -218,7 +219,7 @@ class FmGraphContentView : UIView {
             myLayer.path = startLine.CGPath
             let animation = CABasicAnimation(keyPath: "path")
         
-            animation.duration = 1.0
+            animation.duration = duration
             animation.fromValue = myLayer.path
             animation.toValue = endLine.CGPath
             
