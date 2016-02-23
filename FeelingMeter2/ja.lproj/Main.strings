@@ -1,0 +1,12 @@
+/* Class = "UIBarButtonItem"; title = "使い方"; ObjectID = "6xg-DZ-9f4"; */
+"6xg-DZ-9f4.title" = "使い方";
+
+/* Class = "UINavigationItem"; title = "きもちメーター"; ObjectID = "APw-4O-bb5"; */
+"APw-4O-bb5.title" = "きもちメーター";
+
+/* Class = "UILabel"; text = "きもちメータの使い方"; ObjectID = "hXy-qQ-WKd"; */
+"hXy-qQ-WKd.text" = "きもちメータの使い方";
+
+/* Class = "UIBarButtonItem"; title = "グラフ"; ObjectID = "wt2-Vv-SFM"; */
+"wt2-Vv-SFM.title" = "グラフ";
+

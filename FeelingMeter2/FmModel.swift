@@ -40,11 +40,11 @@ class FmModel : FmGraphDataSource
     }
     
     let feelingTypes: [FeelingType] = [
-        FeelingType(color: UIColor.redColor(), message: "あかのきもち"),
-        FeelingType(color: UIColor.orangeColor(), message: "おれんじのきもち"),
-        FeelingType(color: UIColor.greenColor(), message: "みどりのきもち"),
-        FeelingType(color: UIColor.cyanColor(), message: "みずいろのきもち"),
-        FeelingType(color: UIColor.blueColor(), message: "あおのきもち")
+        FeelingType(color: UIColor.redColor(), message: NSLocalizedString("Feeling Red", comment: "Home view string")),
+        FeelingType(color: UIColor.orangeColor(), message: NSLocalizedString("Feeling Orange", comment: "Home view string")),
+        FeelingType(color: UIColor.greenColor(), message: NSLocalizedString("Feeling Green", comment: "Home view string")),
+        FeelingType(color: UIColor.cyanColor(), message: NSLocalizedString("Feeling Light Blue", comment: "Home view string")),
+        FeelingType(color: UIColor.blueColor(), message: NSLocalizedString("Feeling Blue", comment: "Home view string"))
     ]
     
     var feelings: [FeelingItem] = []
