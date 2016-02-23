@@ -145,10 +145,25 @@ class FmGraphContentView : UIView {
     
     private func dateString(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
-        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP")
-        dateFormatter.dateFormat = "yyyy/MM/dd\nHH:mm:ss"
+        dateFormatter.timeStyle = .NoStyle
+        dateFormatter.dateStyle = .ShortStyle
         let dateString: String = dateFormatter.stringFromDate(date)
-        return dateString
+        dateFormatter.timeStyle = .ShortStyle
+        dateFormatter.dateStyle = .NoStyle
+        let timeString: String = dateFormatter.stringFromDate(date)
+        
+        let cal: NSCalendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
+        let comp: NSDateComponents = cal.components(
+            [NSCalendarUnit.Weekday],
+            fromDate: date
+        )
+        
+        let weekday: Int = comp.weekday
+        let weekdaySymbolIndex: Int = weekday - 1
+        
+        let weekDayStr = dateFormatter.shortWeekdaySymbols[weekdaySymbolIndex]
+        
+        return dateString + "\n" + weekDayStr + "\n" +  timeString
     }
     
     private func drawTextAt(point: CGPoint,text: String){
