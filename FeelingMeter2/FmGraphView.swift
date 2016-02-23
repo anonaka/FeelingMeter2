@@ -157,10 +157,7 @@ class FmGraphContentView : UIView {
             [NSCalendarUnit.Weekday],
             fromDate: date
         )
-        
-        let weekday: Int = comp.weekday
-        let weekdaySymbolIndex: Int = weekday - 1
-        
+        let weekdaySymbolIndex: Int = comp.weekday - 1
         let weekDayStr = dateFormatter.shortWeekdaySymbols[weekdaySymbolIndex]
         
         return dateString + "\n" + weekDayStr + "\n" +  timeString
