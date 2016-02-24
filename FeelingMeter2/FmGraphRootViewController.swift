@@ -21,7 +21,7 @@ class FmGraphRootViewController : UIViewController
     var fmYAxisView: FmGraphYAxisView! = nil
     var fmGraphScrollView: UIScrollView! = nil
     var fmGraphContentView: FmGraphContentView! = nil
-    
+    var needsSetupView = true
 
     @IBOutlet var fmGraphRootView: UIView!
     
@@ -34,18 +34,28 @@ class FmGraphRootViewController : UIViewController
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // so that animation do not run twice at init time
+        if needsSetupView {
+            setupViews()
+        }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        setupViews()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        needsSetupView = false
+        
     }
-    
+
     override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
-        setupViews()
+        needsSetupView = true
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)  {
-    }
+    // debug
+//    private func printScreenInfo(){
+//        print("frame: ",fmGraphRootView.frame)
+//        print("bounds: ",fmGraphRootView.bounds)
+//    }
     
     private func setupViews(){
         fmYAxisView?.removeFromSuperview()
@@ -58,6 +68,7 @@ class FmGraphRootViewController : UIViewController
     
     private func setupYAxisView(){
         // set up Y asxis view
+ 
         let x = CGFloat(0),y = CGFloat(0)
         let w = fmGraphRootView.bounds.width * getGeometryInfo().yAxisWidthPersentage
         let h = fmGraphRootView.bounds.height
