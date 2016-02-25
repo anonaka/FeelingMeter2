@@ -22,7 +22,8 @@ class FmGraphRootViewController : UIViewController
     var fmGraphScrollView: UIScrollView! = nil
     var fmGraphContentView: FmGraphContentView! = nil
     var needsSetupView = true
-
+    var xScrolPos = CGFloat(0.0)
+    
     @IBOutlet var fmGraphRootView: UIView!
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,15 +48,23 @@ class FmGraphRootViewController : UIViewController
         
     }
 
+    
+    override func  viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        // remember scroll position
+        xScrolPos = fmGraphScrollView.contentOffset.x / fmGraphScrollView.contentSize.width
+    }
+
     override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
         needsSetupView = true
     }
     
-    // debug
-//    private func printScreenInfo(){
-//        print("frame: ",fmGraphRootView.frame)
-//        print("bounds: ",fmGraphRootView.bounds)
-//    }
+    //debug
+    /* 
+    private func printScreenInfo(){
+        print("frame: ",fmGraphRootView.frame)
+        print("bounds: ",fmGraphRootView.bounds)
+    }
+    */
     
     private func setupViews(){
         fmYAxisView?.removeFromSuperview()
@@ -89,6 +98,7 @@ class FmGraphRootViewController : UIViewController
         let dataCount = fmModel.getFeelingData().count
         let w2 = max(cellWidth * CGFloat(dataCount),w)
         fmGraphScrollView.contentSize = CGSizeMake(w2, h)
+        fmGraphScrollView.contentOffset.x = w2 * xScrolPos
         fmGraphScrollView.bounces = false
         let rect = CGRectMake(0,0,w2,h)
         fmGraphContentView = FmGraphContentView(frame: rect, dataSource: fmModel, geometryInfo: getGeometryInfo())
