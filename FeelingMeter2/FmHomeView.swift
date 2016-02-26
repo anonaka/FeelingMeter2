@@ -51,6 +51,7 @@ class FmHomeView : UIView {
             label.backgroundColor = UIColor.whiteColor()
             label.alpha = 0.8
             label.font = UIFont.systemFontOfSize(30)
+            label.textAlignment = .Center
             self.addSubview(item)
             item.addSubview(label)
         }
