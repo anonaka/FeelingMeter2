@@ -98,7 +98,14 @@ class FmGraphRootViewController : UIViewController
         let dataCount = fmModel.getFeelingData().count
         let w2 = max(cellWidth * CGFloat(dataCount),w)
         fmGraphScrollView.contentSize = CGSizeMake(w2, h)
-        fmGraphScrollView.contentOffset.x = w2 * xScrolPos
+        
+        // limit scroll position
+        if (w2 * xScrolPos)  + fmGraphScrollView.frame.width < fmGraphScrollView.contentSize.width {
+            fmGraphScrollView.contentOffset.x = w2 * xScrolPos
+        } else {
+            fmGraphScrollView.contentOffset.x = fmGraphScrollView.contentSize.width - fmGraphScrollView.frame.width
+        }
+        
         fmGraphScrollView.bounces = false
         let rect = CGRectMake(0,0,w2,h)
         fmGraphContentView = FmGraphContentView(frame: rect, dataSource: fmModel, geometryInfo: getGeometryInfo())
