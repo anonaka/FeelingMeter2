@@ -40,18 +40,25 @@ class FmHomeView : UIView {
             
             // add message text
             //TODO nees refactor
-            let x2 = CGFloat(10.0)
-            let y2 = rect.height / 2.0
-            let textWith = self.itemSize.width * 0.8
-            let textHeight = CGFloat(50.0)
-            let label =  UILabel(frame: CGRectMake(x2, y2, textWith, textHeight));
+            let fontSize = CGFloat(30.0)
+            let y2 = (rect.height / 2.0) - (fontSize / 2.0)
+            let maxSize = CGSizeMake(frame.width,frame.height)
+            
+            let label =  UILabel(frame: CGRectMake(0, y2, maxSize.width, maxSize.height));
     
             label.text = dataSource.getText(i)
             label.textColor = item.backgroundColor
             label.backgroundColor = UIColor.whiteColor()
             label.alpha = 0.8
-            label.font = UIFont.systemFontOfSize(30)
+            label.font = UIFont.systemFontOfSize(fontSize)
             label.textAlignment = .Center
+            
+            // adjust UILabel frame rect
+            let rectFits = label.sizeThatFits(maxSize)
+            let frameScaleFactor = CGFloat(1.4)
+            let x2 = (frame.width - (rectFits.width * frameScaleFactor)) / 2.0
+            label.frame = CGRectMake(x2,y2,rectFits.width * frameScaleFactor, rectFits.height * frameScaleFactor)
+
             self.addSubview(item)
             item.addSubview(label)
         }
