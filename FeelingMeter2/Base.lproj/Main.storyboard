@@ -29,7 +29,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="APw-4O-bb5">
+                    <navigationItem key="navigationItem" title="Feeling Meter" id="APw-4O-bb5">
                         <barButtonItem key="leftBarButtonItem" title="Help" id="6xg-DZ-9f4">
                             <connections>
                                 <segue destination="fvO-NS-PJ5" kind="show" id="K8m-kS-cGS"/>
@@ -80,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="1167" y="791"/>
         </scene>
-        <!--Fm Graph Root View Controller-->
+        <!--Graph-->
         <scene sceneID="XaR-Wo-DXb">
             <objects>
                 <viewController id="Ta3-cp-Rta" customClass="FmGraphRootViewController" customModule="FeelingMeter2" customModuleProvider="target" sceneMemberID="viewController">
@@ -94,7 +94,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="VsI-eQ-d4Y">
+                    <navigationItem key="navigationItem" title="Graph" id="VsI-eQ-d4Y">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="qUN-Mo-HEM">
                             <connections>
                                 <segue destination="SZE-fw-63k" kind="show" id="qhl-XI-Nab"/>
