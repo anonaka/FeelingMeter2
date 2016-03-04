@@ -52,12 +52,13 @@ class FmHomeView : UIView {
             label.alpha = 0.8
             label.font = UIFont.systemFontOfSize(fontSize)
             label.textAlignment = .Center
+            label.adjustsFontSizeToFitWidth = true
+            //label.shadowColor = UIColor.blackColor()
             
             // adjust UILabel frame rect
-            let rectFits = label.sizeThatFits(maxSize)
-            let frameScaleFactor = CGFloat(1.4)
-            let x2 = (frame.width - (rectFits.width * frameScaleFactor)) / 2.0
-            label.frame = CGRectMake(x2,y2,rectFits.width * frameScaleFactor, rectFits.height * frameScaleFactor)
+            let labelFrameSize = CGSizeMake(maxSize.width * 0.7,fontSize * 1.5)
+            let x2 = (frame.width - labelFrameSize.width) / 2.0
+            label.frame = CGRectMake(x2,y2,labelFrameSize.width , labelFrameSize.height)
 
             self.addSubview(item)
             item.addSubview(label)

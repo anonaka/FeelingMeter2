@@ -73,14 +73,16 @@ class FmGraphYAxisView: UIView {
     private func drawColorLableInView(view: UIView,x:CGFloat ,y:CGFloat, index: Int){
         let widthRatio = CGFloat(0.9)
         let text = dataSource.getText(index)
+        let fontSize = CGFloat(10)
         let x2 = (view.bounds.width * (1 - widthRatio)) / 2.0
-        let label = UILabel(frame: CGRect(x: x2,y: view.bounds.midY  , width: view.bounds.width * widthRatio, height: 12.0))
+        let label = UILabel(frame: CGRect(x: x2,y: view.bounds.midY - (fontSize / 2.0), width: view.bounds.width * widthRatio, height: 12.0))
+        label.alpha = 0.9
         label.text = text
         label.textColor = dataSource.getColor(index)
         label.backgroundColor = UIColor.whiteColor()
-        label.alpha = 0.8
-        label.font = UIFont.systemFontOfSize(10)
+        label.font = UIFont.systemFontOfSize(fontSize)
         label.textAlignment = .Center
+        label.adjustsFontSizeToFitWidth = true
         view.addSubview(label)
     }
 }
