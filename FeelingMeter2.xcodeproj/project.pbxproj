@@ -52,12 +52,12 @@
 /* Begin PBXFileReference section */
 		0B05CFF91C7C0C0600E9D7C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0B05CFFB1C7C0C1300E9D7C0 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		0B8270AA1C8975DD00E9AD05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		0B9313AE1C70072E00C8FCF3 /* LaunchImage_6p@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage_6p@3x.png"; sourceTree = "<group>"; };
 		0B9313B01C70077500C8FCF3 /* LaunchImage_4s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage_4s@2x.png"; sourceTree = "<group>"; };
 		0B9313B11C70077500C8FCF3 /* LaunchImage_5s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage_5s@2x.png"; sourceTree = "<group>"; };
 		0B9313B41C70077C00C8FCF3 /* LaunchImage_pad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage_pad@2x.png"; sourceTree = "<group>"; };
 		0BB8F9C41C7C0AE100249BBA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		0BB8F9C61C7C0AF200249BBA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0BB8F9C81C7C0B0A00249BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0BEEFC1B1C70010D00668A8A /* FeelingMeter2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeelingMeter2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BEEFC1E1C70010D00668A8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -366,9 +366,9 @@
 		0BB8F9C71C7C0AF200249BBA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0BB8F9C61C7C0AF200249BBA /* en */,
 				0BB8F9C81C7C0B0A00249BBA /* Base */,
 				0B05CFFB1C7C0C1300E9D7C0 /* ja */,
+				0B8270AA1C8975DD00E9AD05 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

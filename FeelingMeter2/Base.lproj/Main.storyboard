@@ -29,13 +29,13 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="きもちメーター" id="APw-4O-bb5">
-                        <barButtonItem key="leftBarButtonItem" title="使い方" id="6xg-DZ-9f4">
+                    <navigationItem key="navigationItem" id="APw-4O-bb5">
+                        <barButtonItem key="leftBarButtonItem" title="Help" id="6xg-DZ-9f4">
                             <connections>
                                 <segue destination="fvO-NS-PJ5" kind="show" id="K8m-kS-cGS"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="グラフ" id="wt2-Vv-SFM">
+                        <barButtonItem key="rightBarButtonItem" title="Graph" id="wt2-Vv-SFM">
                             <connections>
                                 <segue destination="Ta3-cp-Rta" kind="show" identifier="showGraph" id="drP-zO-5aU"/>
                             </connections>
@@ -78,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uln-tO-lwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1470" y="779"/>
+            <point key="canvasLocation" x="1167" y="791"/>
         </scene>
         <!--Fm Graph Root View Controller-->
         <scene sceneID="XaR-Wo-DXb">
@@ -94,6 +94,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="VsI-eQ-d4Y">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="qUN-Mo-HEM">
+                            <connections>
+                                <segue destination="SZE-fw-63k" kind="show" id="qhl-XI-Nab"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="fmGraphRootView" destination="EbE-Y9-vHP" id="SF3-QR-Yjl"/>
                     </connections>
@@ -101,6 +108,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yfP-G5-qCH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1869" y="39"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eIy-Rm-8M6">
+            <objects>
+                <viewController id="SZE-fw-63k" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y96-tx-Bd3"/>
+                        <viewControllerLayoutGuide type="bottom" id="1de-NZ-0Td"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="viQ-kI-D6c">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhh-rb-akF">
+                                <rect key="frame" x="240" y="202" width="120" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Delete One"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1Z-Uz-9MH">
+                                <rect key="frame" x="240" y="329" width="102" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Delete All"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A1Z-Uz-9MH" firstAttribute="top" secondItem="Rhh-rb-akF" secondAttribute="bottom" constant="86" id="CZh-kc-Opi"/>
+                            <constraint firstItem="Rhh-rb-akF" firstAttribute="leading" secondItem="A1Z-Uz-9MH" secondAttribute="leading" id="kax-wx-2g6"/>
+                            <constraint firstItem="Rhh-rb-akF" firstAttribute="top" secondItem="y96-tx-Bd3" secondAttribute="bottom" constant="138" id="kcg-Ca-7qe"/>
+                            <constraint firstItem="Rhh-rb-akF" firstAttribute="centerX" secondItem="viQ-kI-D6c" secondAttribute="centerX" id="lTI-xp-d98"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dQi-bR-lav" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2514" y="39"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xQz-qL-vUI">
