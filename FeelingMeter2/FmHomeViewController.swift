@@ -83,6 +83,7 @@ class FmHomeViewController: UIViewController, UIScrollViewDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // TODO: add protection to check if the destination view is really the view I want
         if segue.identifier == "showGraph" {
             let graphVc = segue.destinationViewController as! FmGraphRootViewController
             graphVc.fmModel = self.fmModel
