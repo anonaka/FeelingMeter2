@@ -48,8 +48,13 @@ class FmModel : FmGraphDataSource
     ]
     
     var feelings: [FeelingItem] = []
-
+    let managedContext: NSManagedObjectContext
+    let entityName = "FeelingStore"
+    
     init(){
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        managedContext = appDelegate.managedObjectContext
+    
         fetchFeelingData()
     }
     
@@ -81,23 +86,15 @@ class FmModel : FmGraphDataSource
     }
     
     func saveFeelingData(item: FeelingItem){
-        //1
-        let appDelegate =
-        UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext
-        
-        //2
-        let entity =  NSEntityDescription.entityForName("FeelingStore",
-            inManagedObjectContext:managedContext)
+        let entity =  NSEntityDescription.entityForName(entityName,
+            inManagedObjectContext: self.managedContext)
  
         let feeling = NSManagedObject(entity: entity!,
-            insertIntoManagedObjectContext: managedContext)
+            insertIntoManagedObjectContext: self.managedContext)
         
-        //3
         feeling.setValue(item.date, forKey: "date")
         feeling.setValue(item.feeling, forKey: "feeling")
-        //4
+
         do {
             try managedContext.save()
             //5
@@ -106,40 +103,46 @@ class FmModel : FmGraphDataSource
         }
     }
     
+    // TODO: refacor delete frist, last, all
+    func deleteLastFeelingData(){
+        let fetchRequest = NSFetchRequest(entityName: entityName)
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            // remove the last data
+            let firstStoredData = results.last
+            managedContext.deleteObject(firstStoredData as! NSManagedObject)
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
+    
     func deleteFirstFeelingData(){
-        //1
-        let appDelegate =
-        UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext
-        
-        //2
-        let fetchRequest = NSFetchRequest(entityName: "FeelingStore")
-        
-        //3
+        let fetchRequest = NSFetchRequest(entityName: entityName)
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
                 // remove the first data
-                let firstStoredData = results[0]
+                let firstStoredData = results.first
                 managedContext.deleteObject(firstStoredData as! NSManagedObject)
             } catch let error as NSError {
                 print("Could not fetch \(error), \(error.userInfo)")
         }
     }
 
+    func deleteAllFeelingData(){
+        let fetchRequest = NSFetchRequest(entityName: entityName)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try managedContext.executeRequest(deleteRequest)
+        } catch let error as NSError {
+            print("Could not delete \(error), \(error.userInfo)")
+        }
+    }
     
     func fetchFeelingData(){
-        //1
-        let appDelegate =
-        UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext
-        
-        //2
         let fetchRequest = NSFetchRequest(entityName: "FeelingStore")
         
-        //3
-        do {
+         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
             for elem in results {
                 let date = elem.valueForKey("date") as! NSDate

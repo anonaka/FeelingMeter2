@@ -109,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="1869" y="39"/>
         </scene>
-        <!--View Controller-->
+        <!--Fm Management View Controller-->
         <scene sceneID="eIy-Rm-8M6">
             <objects>
-                <viewController id="SZE-fw-63k" sceneMemberID="viewController">
+                <viewController id="SZE-fw-63k" customClass="FmManagementViewController" customModule="FeelingMeter2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y96-tx-Bd3"/>
                         <viewControllerLayoutGuide type="bottom" id="1de-NZ-0Td"/>
@@ -125,11 +125,17 @@
                                 <rect key="frame" x="240" y="202" width="120" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Delete One"/>
+                                <connections>
+                                    <action selector="deleteOne:" destination="SZE-fw-63k" eventType="touchUpInside" id="Yr6-zI-sB6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1Z-Uz-9MH">
                                 <rect key="frame" x="240" y="329" width="102" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Delete All"/>
+                                <connections>
+                                    <action selector="deleteAll:" destination="SZE-fw-63k" eventType="touchUpInside" id="crS-La-3Pv"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -140,6 +146,10 @@
                             <constraint firstItem="Rhh-rb-akF" firstAttribute="centerX" secondItem="viQ-kI-D6c" secondAttribute="centerX" id="lTI-xp-d98"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="deleteAllButton" destination="A1Z-Uz-9MH" id="MKV-37-Zak"/>
+                        <outlet property="deleteOneButton" destination="Rhh-rb-akF" id="70k-Di-egE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQi-bR-lav" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
