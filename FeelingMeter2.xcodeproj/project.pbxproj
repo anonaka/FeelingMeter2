@@ -14,7 +14,6 @@
 		0B9313B51C70077C00C8FCF3 /* LaunchImage_pad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B9313B41C70077C00C8FCF3 /* LaunchImage_pad@2x.png */; };
 		0BB8F9C51C7C0AF200249BBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BB8F9C71C7C0AF200249BBA /* Main.storyboard */; };
 		0BEEFC1F1C70010D00668A8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEFC1E1C70010D00668A8A /* AppDelegate.swift */; };
-		0BEEFC211C70010D00668A8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEFC201C70010D00668A8A /* ViewController.swift */; };
 		0BEEFC271C70010D00668A8A /* FeelingMeter2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEFC251C70010D00668A8A /* FeelingMeter2.xcdatamodeld */; };
 		0BEEFC291C70010D00668A8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BEEFC281C70010D00668A8A /* Assets.xcassets */; };
 		0BEEFC2C1C70010D00668A8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BEEFC2A1C70010D00668A8A /* LaunchScreen.storyboard */; };
@@ -63,7 +62,6 @@
 		0BB8F9C81C7C0B0A00249BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0BEEFC1B1C70010D00668A8A /* FeelingMeter2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeelingMeter2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BEEFC1E1C70010D00668A8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0BEEFC201C70010D00668A8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0BEEFC261C70010D00668A8A /* FeelingMeter2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeelingMeter2.xcdatamodel; sourceTree = "<group>"; };
 		0BEEFC281C70010D00668A8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BEEFC2B1C70010D00668A8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -138,7 +136,6 @@
 				0BFBC03E1C7C116F001AC0F7 /* Localizable.strings */,
 				0BFBC0391C7C116F001AC0F7 /* InfoPlist.strings */,
 				0BEEFC1E1C70010D00668A8A /* AppDelegate.swift */,
-				0BEEFC201C70010D00668A8A /* ViewController.swift */,
 				0BEEFC281C70010D00668A8A /* Assets.xcassets */,
 				0BEEFC511C70016D00668A8A /* FmGraphRootViewController.swift */,
 				0BEEFC521C70016D00668A8A /* FmGraphView.swift */,
@@ -326,7 +323,6 @@
 				0BEEFC271C70010D00668A8A /* FeelingMeter2.xcdatamodeld in Sources */,
 				0BEEFC591C70016D00668A8A /* FmHomeViewController.swift in Sources */,
 				0B6B20C01C96AA310085FC55 /* FmManagementViewController.swift in Sources */,
-				0BEEFC211C70010D00668A8A /* ViewController.swift in Sources */,
 				0BEEFC581C70016D00668A8A /* FmHomeView.swift in Sources */,
 				0BEEFC5A1C70016D00668A8A /* FmModel.swift in Sources */,
 				0BEEFC561C70016D00668A8A /* FmGraphRootViewController.swift in Sources */,
