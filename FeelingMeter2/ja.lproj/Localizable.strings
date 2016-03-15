@@ -1,3 +1,12 @@
+/* Cancel button */
+"Cancel" = "キャンセル";
+
+/* dialog title */
+"Delete all?" = "全部消しますか？";
+
+/* dialog title */
+"Deleted" = "消しました";
+
 /* Home view string */
 "Feeling Blue" = "あおのきもち";
 
@@ -12,4 +21,13 @@
 
 /* Home view string */
 "Feeling Red" = "あかのきもち";
+
+/* OK */
+"OK" = "OK";
+
+/* one data deleted confirmation */
+"One data deleted" = "最後のテータを一つ消しました";
+
+/* dialog message */
+"all the data will be deleteed" = "記録されている全部のテータを消します";
 
