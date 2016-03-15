@@ -79,7 +79,6 @@ class FmModel : FmGraphDataSource
         let item = FeelingItem(feeling: feeling)
         feelings.append(item)
         if MAX_DATA_LIMIT < feelings.count {
-            feelings.removeFirst()
             deleteFirstFeelingData()
         }
         saveFeelingData(item)
@@ -105,6 +104,11 @@ class FmModel : FmGraphDataSource
     
     // TODO: refacor delete frist, last, all
     func deleteLastFeelingData(){
+        if feelings.count == 0 {
+            return
+        }
+        
+        feelings.removeLast()
         let fetchRequest = NSFetchRequest(entityName: entityName)
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
@@ -117,6 +121,7 @@ class FmModel : FmGraphDataSource
     }
     
     func deleteFirstFeelingData(){
+        feelings.removeFirst()
         let fetchRequest = NSFetchRequest(entityName: entityName)
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
@@ -129,6 +134,7 @@ class FmModel : FmGraphDataSource
     }
 
     func deleteAllFeelingData(){
+        feelings = []
         let fetchRequest = NSFetchRequest(entityName: entityName)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
