@@ -47,6 +47,8 @@ class FmModel : FmGraphDataSource
         FeelingType(color: UIColor.blueColor(), message: NSLocalizedString("Feeling Blue", comment: "Home view string"))
     ]
     
+    var gvController: FmGraphRootViewController? = nil
+    
     var feelings: [FeelingItem] = []
     let managedContext: NSManagedObjectContext
     let entityName = "FeelingStore"
@@ -108,6 +110,8 @@ class FmModel : FmGraphDataSource
             return
         }
         
+        gvController?.setNeedsUpdate()
+        
         feelings.removeLast()
         let fetchRequest = NSFetchRequest(entityName: entityName)
         do {
@@ -134,6 +138,7 @@ class FmModel : FmGraphDataSource
     }
 
     func deleteAllFeelingData(){
+        gvController?.setNeedsUpdate()
         feelings = []
         let fetchRequest = NSFetchRequest(entityName: entityName)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)

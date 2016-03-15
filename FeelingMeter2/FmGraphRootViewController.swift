@@ -45,9 +45,8 @@ class FmGraphRootViewController : UIViewController
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         needsSetupView = false
-        
+        fmModel.gvController = self
     }
-
     
     override func  viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         // remember scroll position
@@ -120,5 +119,9 @@ class FmGraphRootViewController : UIViewController
             let vc = segue.destinationViewController as! FmManagementViewController
                 vc.fmModel = self.fmModel
         }
+    }
+    
+    func setNeedsUpdate(){
+        needsSetupView = true
     }
 }
