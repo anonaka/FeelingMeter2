@@ -112,4 +112,13 @@ class FmGraphRootViewController : UIViewController
         fmGraphScrollView.addSubview(fmGraphContentView)
         fmGraphRootView.addSubview(fmGraphScrollView)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showManagement" {
+            print ("segue management view")
+            // TODO: add protection to check if the destination view is really the view I want
+            let vc = segue.destinationViewController as! FmManagementViewController
+                vc.fmModel = self.fmModel
+        }
+    }
 }

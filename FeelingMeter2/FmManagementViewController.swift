@@ -10,16 +10,18 @@ import UIKit
 
 class FmManagementViewController: UIViewController {
 
+    var fmModel: FmModel!
+    
     @IBOutlet weak var deleteOneButton: UIButton!
     @IBOutlet weak var deleteAllButton: UIButton!
     
-    @IBAction func deleteOne(sender: AnyObject) {
+    @IBAction func deleteLastOne(sender: AnyObject) {
         print("delete one")
+        fmModel.deleteLastFeelingData()
     }
     
     @IBAction func deleteAll(sender: AnyObject) {
         print("delete all")
-        
+        fmModel.deleteAllFeelingData()
     }
-    
 }

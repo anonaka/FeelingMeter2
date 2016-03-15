@@ -97,7 +97,7 @@
                     <navigationItem key="navigationItem" title="Graph" id="VsI-eQ-d4Y">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="qUN-Mo-HEM">
                             <connections>
-                                <segue destination="SZE-fw-63k" kind="show" id="qhl-XI-Nab"/>
+                                <segue destination="SZE-fw-63k" kind="show" identifier="showManagement" id="qhl-XI-Nab"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -126,7 +126,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Delete One"/>
                                 <connections>
-                                    <action selector="deleteOne:" destination="SZE-fw-63k" eventType="touchUpInside" id="Yr6-zI-sB6"/>
+                                    <action selector="deleteLastOne:" destination="SZE-fw-63k" eventType="touchUpInside" id="ufs-2N-E6q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1Z-Uz-9MH">
@@ -153,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQi-bR-lav" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2514" y="39"/>
+            <point key="canvasLocation" x="2566" y="39"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xQz-qL-vUI">
