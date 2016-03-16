@@ -161,9 +161,11 @@ class FmGraphContentView : UIView {
     
     private func dateString(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
-        dateFormatter.timeStyle = .NoStyle
-        dateFormatter.dateStyle = .ShortStyle
+//        dateFormatter.timeStyle = .NoStyle
+//        dateFormatter.dateStyle = .ShortStyle
+        dateFormatter.dateFormat = "MM/dd"
         let dateString: String = dateFormatter.stringFromDate(date)
+        
         dateFormatter.timeStyle = .ShortStyle
         dateFormatter.dateStyle = .NoStyle
         let timeString: String = dateFormatter.stringFromDate(date)
@@ -184,7 +186,8 @@ class FmGraphContentView : UIView {
         label.text = text
         label.lineBreakMode = NSLineBreakMode.ByWordWrapping
         label.numberOfLines = 3
-        label.font = UIFont.systemFontOfSize(10.0)
+        label.textAlignment = .Center
+        label.font = UIFont.systemFontOfSize(11.0)
         self.addSubview(label)
     }
     

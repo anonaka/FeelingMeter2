@@ -14,7 +14,7 @@ class FmGraphRootViewController : UIViewController
     {
         static let xAxisHeight = CGFloat(50.0)
         static let yAxisWidthPersentage = CGFloat(0.2)
-        static let cellWidth = CGFloat(60.0)
+        static let cellWidth = CGFloat(40.0)
     }
     
     var fmModel: FmModel! // set by nav controller when segue
