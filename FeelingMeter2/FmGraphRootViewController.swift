@@ -12,9 +12,9 @@ class FmGraphRootViewController : UIViewController
 {
     struct FmGraphGeometryInfo
     {
-        let xAxisHeight = CGFloat(50.0)
-        let yAxisWidthPersentage = CGFloat(0.2)
-        let cellWidth = CGFloat(80.0)
+        static let xAxisHeight = CGFloat(50.0)
+        static let yAxisWidthPersentage = CGFloat(0.2)
+        static let cellWidth = CGFloat(60.0)
     }
     
     var fmModel: FmModel! // set by nav controller when segue
@@ -78,24 +78,23 @@ class FmGraphRootViewController : UIViewController
         // set up Y asxis view
  
         let x = CGFloat(0),y = CGFloat(0)
-        let w = fmGraphRootView.bounds.width * getGeometryInfo().yAxisWidthPersentage
+        let w = fmGraphRootView.bounds.width * FmGraphGeometryInfo.yAxisWidthPersentage
         let h = fmGraphRootView.bounds.height
-        fmYAxisView = FmGraphYAxisView(frame: CGRectMake(x,y,w,h),dataSource: fmModel, geometryInfo: getGeometryInfo())
+        fmYAxisView = FmGraphYAxisView(frame: CGRectMake(x,y,w,h),dataSource: fmModel)
         fmGraphRootView.addSubview(fmYAxisView)
     }
     
     private func setupGraphView() {
         // set up graph view
-        let x = fmGraphRootView.bounds.width * getGeometryInfo().yAxisWidthPersentage
+        let x = fmGraphRootView.bounds.width * FmGraphGeometryInfo.yAxisWidthPersentage
         let y = CGFloat(0)
-        let w = fmGraphRootView.bounds.width * (1.0 - getGeometryInfo().yAxisWidthPersentage)
+        let w = fmGraphRootView.bounds.width * (1.0 - FmGraphGeometryInfo.yAxisWidthPersentage)
         let h = fmGraphRootView.bounds.height
         self.fmGraphScrollView = UIScrollView(frame: CGRectMake(x,y,w,h))
         
         // calculate content size in the scroll view
-        let cellWidth = CGFloat(80.0)
         let dataCount = fmModel.getFeelingData().count
-        let w2 = max(cellWidth * CGFloat(dataCount),w)
+        let w2 = max(FmGraphGeometryInfo.cellWidth * CGFloat(dataCount),w)
         fmGraphScrollView.contentSize = CGSizeMake(w2, h)
         
         // limit scroll position
@@ -107,7 +106,7 @@ class FmGraphRootViewController : UIViewController
         
         fmGraphScrollView.bounces = false
         let rect = CGRectMake(0,0,w2,h)
-        fmGraphContentView = FmGraphContentView(frame: rect, dataSource: fmModel, geometryInfo: getGeometryInfo())
+        fmGraphContentView = FmGraphContentView(frame: rect, dataSource: fmModel)
         fmGraphScrollView.addSubview(fmGraphContentView)
         fmGraphRootView.addSubview(fmGraphScrollView)
     }

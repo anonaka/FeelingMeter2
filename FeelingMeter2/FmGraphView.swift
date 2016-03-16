@@ -39,11 +39,9 @@ class TestDataSource: FmGraphDataSource {
 
 
 class FmGraphYAxisView: UIView {
-    let ginfo: FmGraphRootViewController.FmGraphGeometryInfo
     let dataSource: FmGraphDataSource
     
-    init(frame: CGRect, dataSource: FmGraphDataSource, geometryInfo: FmGraphRootViewController.FmGraphGeometryInfo){
-        ginfo = geometryInfo
+    init(frame: CGRect, dataSource: FmGraphDataSource){
         self.dataSource = dataSource
         super.init(frame: frame)
         setupView()
@@ -55,7 +53,7 @@ class FmGraphYAxisView: UIView {
     
     private func setupView(){
         let numOfFeelings = dataSource.getNumOfFeelings()
-        let cellHeight = (frame.height - ginfo.xAxisHeight) / CGFloat(numOfFeelings)
+        let cellHeight = (frame.height - FmGraphRootViewController.FmGraphGeometryInfo.xAxisHeight) / CGFloat(numOfFeelings)
         
         for i in 0 ..< numOfFeelings {
             let x = CGFloat(0)
@@ -100,15 +98,15 @@ class FmGraphContentView : UIView {
     let graphColor = UIColor.grayColor().CGColor
     let duration = 0.8
 
-    init(frame: CGRect, dataSource: FmGraphDataSource, geometryInfo: FmGraphRootViewController.FmGraphGeometryInfo){
+    init(frame: CGRect, dataSource: FmGraphDataSource){
         fmGraphDataSource = dataSource
         //fmGraphDataSource = TestDataSource() // fro debugging
         data = fmGraphDataSource.getFeelingData()
         dataCount = data.count
         numOfFeelings = fmGraphDataSource.getNumOfFeelings()
-        xAxisHeight =  geometryInfo.xAxisHeight
+        xAxisHeight =  FmGraphRootViewController.FmGraphGeometryInfo.xAxisHeight
         cellHeight = (frame.height - xAxisHeight) / CGFloat(numOfFeelings)
-        cellWidth = geometryInfo.cellWidth
+        cellWidth = FmGraphRootViewController.FmGraphGeometryInfo.cellWidth
         
         super.init(frame: frame)
         self.backgroundColor = UIColor.whiteColor()
@@ -156,7 +154,8 @@ class FmGraphContentView : UIView {
         for i in 0 ..< dataCount {
             let x = CGFloat(i) * cellWidth
             let text = dateString(data[i].date)
-            drawTextAt(CGPointMake(x, y),text: text)
+            let rect = CGRectMake(x, y,cellWidth, xAxisHeight)
+            drawTextAt(rect, text: text)
         }
     }
     
@@ -180,14 +179,15 @@ class FmGraphContentView : UIView {
         return dateString + "\n" + weekDayStr + "\n" +  timeString
     }
     
-    private func drawTextAt(point: CGPoint,text: String){
-        // フォント属性
-        let fontAttr = [NSFontAttributeName: UIFont.systemFontOfSize(12)]
-        // テキスト
-        let str = text as NSString!
-        // テキスト描画
-        str.drawAtPoint(point, withAttributes: fontAttr)
+    private func drawTextAt(frame: CGRect ,text: String){
+        let label = UILabel(frame: frame)
+        label.text = text
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.numberOfLines = 3
+        label.font = UIFont.systemFontOfSize(10.0)
+        self.addSubview(label)
     }
+    
     
     private func drawGraphPoint(center: CGPoint){
         let radius = CGFloat(10.0)
