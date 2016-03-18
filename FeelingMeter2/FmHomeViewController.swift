@@ -74,6 +74,7 @@ class FmHomeViewController: UIViewController, UIScrollViewDelegate {
         let i = fmHomeView.getItemNumber(fmScrollView.contentOffset)
         fmModel.addFeeling(i)
         AudioServicesPlaySystemSound(seletFeelingSoundId)
+        fmHomeView.doFlash(i)
     }
 
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate: Bool) {

@@ -12,6 +12,7 @@ class FmHomeView : UIView {
     let itemSize: CGSize
     let numOfFeelings: Int
     let dataSource: FmGraphDataSource
+    var itemViewList = [UIView]()
     
     // 端末の画面サイズをもらい、そのFeeling数分だけ縦に拡張したフレームで初期化する
     init(size: CGSize, dataSource: FmGraphDataSource)
@@ -62,11 +63,24 @@ class FmHomeView : UIView {
 
             self.addSubview(item)
             item.addSubview(label)
+            itemViewList.append(item)
         }
     }
     // retrun current item view number
     // used to check in which view, swipe gesture done.
     func getItemNumber(offset: CGPoint) -> Int {
         return Int(offset.y / self.itemSize.height)
+    }
+    
+    func doFlash(index: Int){
+        let targetView = self.itemViewList[index]
+        targetView.setNeedsDisplay()    
+        UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
+            animations: { () -> Void in
+                targetView.alpha = 0.4
+            },
+            completion: { (done) -> Void in
+                targetView.alpha = 1.0
+        })
     }
 }
