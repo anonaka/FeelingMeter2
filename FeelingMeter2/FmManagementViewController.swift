@@ -15,32 +15,32 @@ class FmManagementViewController: UIViewController {
     @IBOutlet weak var deleteOneButton: UIButton!
     @IBOutlet weak var deleteAllButton: UIButton!
     
-    @IBAction func deleteLastOne(sender: AnyObject) {
+    @IBAction func deleteLastOne(_ sender: AnyObject) {
         fmModel.deleteLastFeelingData()
         let alertController = UIAlertController(
             title: NSLocalizedString("Deleted",comment: "dialog title"),
             message: NSLocalizedString("One data deleted",comment:"one data deleted confirmation"),
-            preferredStyle: UIAlertControllerStyle.Alert
+            preferredStyle: UIAlertControllerStyle.alert
         )
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(defaultAction)
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func deleteAll(sender: AnyObject) {
+    @IBAction func deleteAll(_ sender: AnyObject) {
         let alertController = UIAlertController(
             title: NSLocalizedString("Delete all?", comment: "dialog title"),
             message: NSLocalizedString("all the data will be deleteed",comment:"dialog message"),
-            preferredStyle: UIAlertControllerStyle.Alert
+            preferredStyle: UIAlertControllerStyle.alert
         )
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel",comment:"Cancel button"), style: .Default, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel",comment:"Cancel button"), style: .default, handler: nil)
         
-        let okAction = UIAlertAction(title: NSLocalizedString("OK",comment:"OK"), style: .Default) {
+        let okAction = UIAlertAction(title: NSLocalizedString("OK",comment:"OK"), style: .default) {
             action in self.fmModel.deleteAllFeelingData()
         }
 
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
 }

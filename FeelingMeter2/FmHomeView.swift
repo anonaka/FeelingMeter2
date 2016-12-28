@@ -19,10 +19,10 @@ class FmHomeView : UIView {
     {
         self.dataSource = dataSource
         self.numOfFeelings = dataSource.getNumOfFeelings()
-        let rect = CGRectMake(0,0,size.width,size.height * CGFloat(self.numOfFeelings))
+        let rect = CGRect(x: 0,y: 0,width: size.width,height: size.height * CGFloat(self.numOfFeelings))
         self.itemSize = size
         super.init(frame: rect)
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         self.initItemView()
     }
     
@@ -30,12 +30,12 @@ class FmHomeView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func initItemView()
+    fileprivate func initItemView()
     {
         for i in 0 ... (self.numOfFeelings - 1) {
             // add feeling color views
             let y = self.itemSize.height * CGFloat(i)
-            let rect = CGRectMake(0,y,self.itemSize.width,self.itemSize.height)
+            let rect = CGRect(x: 0,y: y,width: self.itemSize.width,height: self.itemSize.height)
             let item = UIView(frame: rect)
             item.backgroundColor = dataSource.getColor(i)
             
@@ -43,23 +43,23 @@ class FmHomeView : UIView {
             //TODO nees refactor
             let fontSize = CGFloat(30.0)
             let y2 = (rect.height / 2.0) - (fontSize / 2.0)
-            let maxSize = CGSizeMake(frame.width,frame.height)
+            let maxSize = CGSize(width: frame.width,height: frame.height)
             
-            let label =  UILabel(frame: CGRectMake(0, y2, maxSize.width, maxSize.height));
+            let label =  UILabel(frame: CGRect(x: 0, y: y2, width: maxSize.width, height: maxSize.height));
     
             label.text = dataSource.getText(i)
             label.textColor = item.backgroundColor
-            label.backgroundColor = UIColor.whiteColor()
+            label.backgroundColor = UIColor.white
             label.alpha = 0.8
-            label.font = UIFont.systemFontOfSize(fontSize)
-            label.textAlignment = .Center
+            label.font = UIFont.systemFont(ofSize: fontSize)
+            label.textAlignment = .center
             label.adjustsFontSizeToFitWidth = true
             //label.shadowColor = UIColor.blackColor()
             
             // adjust UILabel frame rect
-            let labelFrameSize = CGSizeMake(maxSize.width * 0.7,fontSize * 1.5)
+            let labelFrameSize = CGSize(width: maxSize.width * 0.7,height: fontSize * 1.5)
             let x2 = (frame.width - labelFrameSize.width) / 2.0
-            label.frame = CGRectMake(x2,y2,labelFrameSize.width , labelFrameSize.height)
+            label.frame = CGRect(x: x2,y: y2,width: labelFrameSize.width , height: labelFrameSize.height)
 
             self.addSubview(item)
             item.addSubview(label)
@@ -68,14 +68,14 @@ class FmHomeView : UIView {
     }
     // retrun current item view number
     // used to check in which view, swipe gesture done.
-    func getItemNumber(offset: CGPoint) -> Int {
+    func getItemNumber(_ offset: CGPoint) -> Int {
         return Int(offset.y / self.itemSize.height)
     }
     
-    func doFlash(index: Int){
+    func doFlash(_ index: Int){
         let targetView = self.itemViewList[index]
         targetView.setNeedsDisplay()    
-        UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
+        UIView.animate(withDuration: 0.2, delay: 0, options: UIViewAnimationOptions(),
             animations: { () -> Void in
                 targetView.alpha = 0.4
             },

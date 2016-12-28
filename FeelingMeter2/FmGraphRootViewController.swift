@@ -42,18 +42,18 @@ class FmGraphRootViewController : UIViewController
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         needsSetupView = false
         fmModel.gvController = self
     }
     
-    override func  viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    override func  viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         // remember scroll position
         xScrolPos = fmGraphScrollView.contentOffset.x / fmGraphScrollView.contentSize.width
     }
 
-    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         needsSetupView = true
     }
     
@@ -65,7 +65,7 @@ class FmGraphRootViewController : UIViewController
     }
     */
     
-    private func setupViews(){
+    fileprivate func setupViews(){
         fmYAxisView?.removeFromSuperview()
         fmGraphScrollView?.removeFromSuperview()
         fmGraphContentView?.removeFromSuperview()
@@ -74,28 +74,28 @@ class FmGraphRootViewController : UIViewController
         setupGraphView()
     }
     
-    private func setupYAxisView(){
+    fileprivate func setupYAxisView(){
         // set up Y asxis view
  
         let x = CGFloat(0),y = CGFloat(0)
         let w = fmGraphRootView.bounds.width * FmGraphGeometryInfo.yAxisWidthPersentage
         let h = fmGraphRootView.bounds.height
-        fmYAxisView = FmGraphYAxisView(frame: CGRectMake(x,y,w,h),dataSource: fmModel)
+        fmYAxisView = FmGraphYAxisView(frame: CGRect(x: x,y: y,width: w,height: h),dataSource: fmModel)
         fmGraphRootView.addSubview(fmYAxisView)
     }
     
-    private func setupGraphView() {
+    fileprivate func setupGraphView() {
         // set up graph view
         let x = fmGraphRootView.bounds.width * FmGraphGeometryInfo.yAxisWidthPersentage
         let y = CGFloat(0)
         let w = fmGraphRootView.bounds.width * (1.0 - FmGraphGeometryInfo.yAxisWidthPersentage)
         let h = fmGraphRootView.bounds.height
-        self.fmGraphScrollView = UIScrollView(frame: CGRectMake(x,y,w,h))
+        self.fmGraphScrollView = UIScrollView(frame: CGRect(x: x,y: y,width: w,height: h))
         
         // calculate content size in the scroll view
         let dataCount = fmModel.getFeelingData().count
         let w2 = max(FmGraphGeometryInfo.cellWidth * CGFloat(dataCount),w)
-        fmGraphScrollView.contentSize = CGSizeMake(w2, h)
+        fmGraphScrollView.contentSize = CGSize(width: w2, height: h)
         
         // limit scroll position
         if (w2 * xScrolPos)  + fmGraphScrollView.frame.width < fmGraphScrollView.contentSize.width {
@@ -105,17 +105,17 @@ class FmGraphRootViewController : UIViewController
         }
         
         fmGraphScrollView.bounces = false
-        let rect = CGRectMake(0,0,w2,h)
+        let rect = CGRect(x: 0,y: 0,width: w2,height: h)
         fmGraphContentView = FmGraphContentView(frame: rect, dataSource: fmModel)
         fmGraphScrollView.addSubview(fmGraphContentView)
         fmGraphRootView.addSubview(fmGraphScrollView)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showManagement" {
             print ("segue management view")
             // TODO: add protection to check if the destination view is really the view I want
-            let vc = segue.destinationViewController as! FmManagementViewController
+            let vc = segue.destination as! FmManagementViewController
                 vc.fmModel = self.fmModel
         }
     }

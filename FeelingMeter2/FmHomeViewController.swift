@@ -24,69 +24,69 @@ class FmHomeViewController: UIViewController, UIScrollViewDelegate {
         self.setupViews()
     }
     
-    private func setupViews(){
-        self.view.backgroundColor = UIColor.whiteColor()
+    fileprivate func setupViews(){
+        self.view.backgroundColor = UIColor.white
         
         // TODO: setup sound must be done in the app init time
         
-        let seletFeelingSoundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("coin4", ofType: "mp3")!)
-        AudioServicesCreateSystemSoundID(seletFeelingSoundURL, &seletFeelingSoundId)
+        let seletFeelingSoundURL = URL(fileURLWithPath: Bundle.main.path(forResource: "coin4", ofType: "mp3")!)
+        AudioServicesCreateSystemSoundID(seletFeelingSoundURL as CFURL, &seletFeelingSoundId)
  
-        let movePageSoundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("jump2", ofType: "mp3")!)
-        AudioServicesCreateSystemSoundID(movePageSoundURL, &movePageSoundId)
+        let movePageSoundURL = URL(fileURLWithPath: Bundle.main.path(forResource: "jump2", ofType: "mp3")!)
+        AudioServicesCreateSystemSoundID(movePageSoundURL as CFURL, &movePageSoundId)
        
-        let size = CGSizeMake(
-            self.view.frame.size.width,
-            self.view.frame.size.height - self.topLayoutGuide.length);
+        let size = CGSize(
+            width: self.view.frame.size.width,
+            height: self.view.frame.size.height - self.topLayoutGuide.length);
   
         if let v = self.fmHomeView
             { v.removeFromSuperview() }
         
         self.fmHomeView = FmHomeView(size: size, dataSource: fmModel)
-        let gr = UISwipeGestureRecognizer(target: self, action: "swipeLeftGesture:")
-        gr.direction = UISwipeGestureRecognizerDirection.Left
+        let gr = UISwipeGestureRecognizer(target: self, action: #selector(FmHomeViewController.swipeLeftGesture(_:)))
+        gr.direction = UISwipeGestureRecognizerDirection.left
         self.fmHomeView.addGestureRecognizer(gr)
         
         // add doub tap gesgure
-        let gr2 = UITapGestureRecognizer(target: self, action: "doubleTapGestuer:")
+        let gr2 = UITapGestureRecognizer(target: self, action: #selector(FmHomeViewController.doubleTapGestuer(_:)))
         gr2.numberOfTapsRequired = 2
         self.fmHomeView.addGestureRecognizer(gr2)
         
         fmScrollView.contentSize = fmHomeView.frame.size
-        fmScrollView.backgroundColor = UIColor.whiteColor()
+        fmScrollView.backgroundColor = UIColor.white
         
-        fmScrollView.pagingEnabled = true;
+        fmScrollView.isPagingEnabled = true;
         fmScrollView.showsVerticalScrollIndicator = true;
         fmScrollView.delaysContentTouches = false;
         fmScrollView.delegate = self
         fmScrollView.addSubview(self.fmHomeView)
     }
 
-    func doubleTapGestuer(gestureRecognizer: UITapGestureRecognizer){
+    func doubleTapGestuer(_ gestureRecognizer: UITapGestureRecognizer){
         addFeeling()
     }
     
-    func swipeLeftGesture(gestureRecognizer: UISwipeGestureRecognizer){
+    func swipeLeftGesture(_ gestureRecognizer: UISwipeGestureRecognizer){
         addFeeling()
     }
     
-    private func addFeeling(){
+    fileprivate func addFeeling(){
         let i = fmHomeView.getItemNumber(fmScrollView.contentOffset)
         fmModel.addFeeling(i)
         AudioServicesPlaySystemSound(seletFeelingSoundId)
         fmHomeView.doFlash(i)
     }
 
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate: Bool) {
         if willDecelerate {
             AudioServicesPlaySystemSound(movePageSoundId)
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // TODO: add protection to check if the destination view is really the view I want
         if segue.identifier == "showGraph" {
-            let graphVc = segue.destinationViewController as! FmGraphRootViewController
+            let graphVc = segue.destination as! FmGraphRootViewController
             graphVc.fmModel = self.fmModel
         }
     }
