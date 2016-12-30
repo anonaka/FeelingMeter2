@@ -42,6 +42,10 @@ class FmGraphRootViewController : UIViewController
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setupGraphView()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         needsSetupView = false
@@ -52,10 +56,6 @@ class FmGraphRootViewController : UIViewController
         // remember scroll position
         needsSetupView = true
         xScrolPos = fmGraphScrollView.contentOffset.x / fmGraphScrollView.contentSize.width
-    }
-
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        needsSetupView = true
     }
     
     //debug
@@ -114,7 +114,6 @@ class FmGraphRootViewController : UIViewController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showManagement" {
-            print ("segue management view")
             // TODO: add protection to check if the destination view is really the view I want
             let vc = segue.destination as! FmManagementViewController
                 vc.fmModel = self.fmModel
