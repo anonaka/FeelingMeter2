@@ -57,45 +57,185 @@
         <scene sceneID="1eN-E9-zKQ">
             <objects>
                 <viewController id="fvO-NS-PJ5" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XzV-pm-b8h"/>
-                        <viewControllerLayoutGuide type="bottom" id="KK4-yP-L1u"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VXa-c4-hDv">
+                    <textView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" id="gNI-cd-721">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZr-vH-lVE">
-                                <rect key="frame" x="-16" y="54" width="320" height="882"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d3I-dI-nuF">
-                                        <rect key="frame" x="20" y="-64" width="300" height="572"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <mutableString key="text">◇◆◇きもちメーター使い方◇◆◇
-
-アプリを起動すると、＜気持ちの選択画面＞が表示されます。
-②気持ちを表す色は、あかーおれんじーみどりーみずいろーあおの５つです。　上下にスワイプすることで画面が変わります。
-気持ちを表す色の目安は、みどりをニュートラルな平静な気分として基準に、おれんじは少し高揚した気分、あかは昂ぶり興奮した気分、みずいろは少し沈んだ気分、あおは落ち込み憂鬱な気分を表します。ただし、これはひとつの例で、色の意味付けは自由に設定して下さい。
-③今の気持ちに合う色をダブルクリックまたは左にフリックして選択します。選んだ気持ちは、日時とともに＜グラフ画面＞に記録されます。記録されるデータ数は○です。
-④左上の[グラフ]をタッチすると、グラフ表示になります。日時も表示されますので、これまでの気持ちの移り変わりを見ることができます。
-⑤気持ちの選択を間違えたときは、グラフ表示画面の右上にある[ゴミ箱マーク]をタッチすると、記録データを消すことができます。
-[すべて消す]を選択すると、これまでの記録が全て消えてしまうので注意してください。（元には戻せません）
-⑥＜グラフ画面＞から＜きもち選択画面＞に戻るには、画面左上の[きもちメーター]をタッチしてください。
-
-きもちメーターは、心理療法の一つである認知行動療法の考え方に基づいてデザインされています。日々の気持ちに向き合い、客観的に意識することで、気分はずっとそのままではなく変わっていくもの、調子の良い時もあれば悪いときもあるということを認識できます。また、自分の気持ちが立ち直っていく過程を客観的にグラフで見ることで、心が乱されたときに、この嫌な気分は永遠に続くわけではなく、また気分のいいときに戻れるのだという前向きな見通しの助けになります。
-
-きもちメーターは。発達障害の人達の感情コントロール支援アプリですが、誰でもが自分の気持ちに向き合う助けとなるアプリです。</mutableString>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="3DG-E0-Pvb"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <attributedString key="attributedText">
+                            <fragment content="◇◆◇">
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".LucidaGrandeUI"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="きもちメーター使い方◇◆◇">
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                <attributes>
+                                    <font key="NSFont" metaFont="system" size="14"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                <attributes>
+                                    <font key="NSFont" metaFont="system" size="14"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="①アプリを起動すると、＜気持ちの選択画面＞が表示されます。">
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                <attributes>
+                                    <font key="NSFont" metaFont="system" size="14"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="②気持ちを表す色は、あかーおれんじーみどりーみずいろーあおの５つです。　上下にスワイプすることで画面が変わります。">
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                <attributes>
+                                    <font key="NSFont" metaFont="system" size="14"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="気持ちを表す色の目安は、みどりをニュートラルな平静な気分として基準に、おれんじは少し高揚した気分、あかは昂ぶり興奮した気分、みずいろは少し沈んだ気分、あおは落ち込み憂鬱な気分を表します。ただし、これはひとつの例で、色の意味付けは自由に設定して下さい。">
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                <attributes>
+                                    <font key="NSFont" metaFont="system" size="14"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="③今の気持ちに合う色をダブルクリックまたは左にフリックして選択します。選んだ気持ちは、日時とともに＜グラフ画面＞に記録されます。記録されるデータ数は">
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="○">
+                                <attributes>
+                                    <font key="NSFont" metaFont="system" size="14"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="です。">
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                <attributes>
+                                    <font key="NSFont" metaFont="system" size="14"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="④左上の[グラフ]をタッチすると、グラフ表示になります。日時も表示されますので、これまでの気持ちの移り変わりを見ることができます。">
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                <attributes>
+                                    <font key="NSFont" metaFont="system" size="14"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="⑤気持ちの選択を間違えたときは、グラフ表示画面の右上にある[ゴミ箱マーク]をタッチすると、記録データを消すことができます。">
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                <attributes>
+                                    <font key="NSFont" metaFont="system" size="14"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="[すべて消す]を選択すると、これまでの記録が全て消えてしまうので注意してください。（元には戻せません）">
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                <attributes>
+                                    <font key="NSFont" metaFont="system" size="14"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="⑥＜グラフ画面＞から＜きもち選択画面＞に戻るには、画面左上の[きもちメーター]をタッチしてください。">
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                <attributes>
+                                    <font key="NSFont" metaFont="system" size="14"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">きもちメーターは、心理療法の一つである認知行動療法の考え方に基づいてデザインされています。日々の気持ちに向き合い、客観的に意識することで、気分はずっとそのままではなく変わっていくもの、調子の良い時もあれば悪いときもあるということを認識できます。また、自分の気持ちが立ち直っていく過程を客観的にグラフで見ることで、心が乱されたときに、この嫌な気分は永遠に続くわけではなく、また気分のいいときに戻れるのだという前向きな見通しの助けになります。</string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                <attributes>
+                                    <font key="NSFont" metaFont="system" size="14"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="きもちメーターは。発達障害の人達の感情コントロール支援アプリですが、誰でもが自分の気持ちに向き合う助けとなるアプリです。">
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                <attributes>
+                                    <font key="NSFont" metaFont="system" size="14"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="568"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uln-tO-lwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
