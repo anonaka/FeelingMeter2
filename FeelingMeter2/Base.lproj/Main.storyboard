@@ -65,23 +65,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="きもちメータの使い方" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXy-qQ-WKd">
-                                <rect key="frame" x="102" y="80" width="170" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZr-vH-lVE">
+                                <rect key="frame" x="-16" y="54" width="320" height="882"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d3I-dI-nuF">
+                                        <rect key="frame" x="20" y="-64" width="300" height="572"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <mutableString key="text">◇◆◇きもちメーター使い方◇◆◇
+
+アプリを起動すると、＜気持ちの選択画面＞が表示されます。
+②気持ちを表す色は、あかーおれんじーみどりーみずいろーあおの５つです。　上下にスワイプすることで画面が変わります。
+気持ちを表す色の目安は、みどりをニュートラルな平静な気分として基準に、おれんじは少し高揚した気分、あかは昂ぶり興奮した気分、みずいろは少し沈んだ気分、あおは落ち込み憂鬱な気分を表します。ただし、これはひとつの例で、色の意味付けは自由に設定して下さい。
+③今の気持ちに合う色をダブルクリックまたは左にフリックして選択します。選んだ気持ちは、日時とともに＜グラフ画面＞に記録されます。記録されるデータ数は○です。
+④左上の[グラフ]をタッチすると、グラフ表示になります。日時も表示されますので、これまでの気持ちの移り変わりを見ることができます。
+⑤気持ちの選択を間違えたときは、グラフ表示画面の右上にある[ゴミ箱マーク]をタッチすると、記録データを消すことができます。
+[すべて消す]を選択すると、これまでの記録が全て消えてしまうので注意してください。（元には戻せません）
+⑥＜グラフ画面＞から＜きもち選択画面＞に戻るには、画面左上の[きもちメーター]をタッチしてください。
+
+きもちメーターは、心理療法の一つである認知行動療法の考え方に基づいてデザインされています。日々の気持ちに向き合い、客観的に意識することで、気分はずっとそのままではなく変わっていくもの、調子の良い時もあれば悪いときもあるということを認識できます。また、自分の気持ちが立ち直っていく過程を客観的にグラフで見ることで、心が乱されたときに、この嫌な気分は永遠に続くわけではなく、また気分のいいときに戻れるのだという前向きな見通しの助けになります。
+
+きもちメーターは。発達障害の人達の感情コントロール支援アプリですが、誰でもが自分の気持ちに向き合う助けとなるアプリです。</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="hXy-qQ-WKd" firstAttribute="centerX" secondItem="VXa-c4-hDv" secondAttribute="centerX" id="GIY-eA-TQh"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3DG-E0-Pvb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uln-tO-lwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1167" y="791"/>
+            <point key="canvasLocation" x="1166.25" y="790.14084507042253"/>
         </scene>
         <!--Graph-->
         <scene sceneID="XaR-Wo-DXb">
@@ -124,16 +142,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhh-rb-akF">
-                                <rect key="frame" x="127" y="215" width="120" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhh-rb-akF">
+                                <rect key="frame" x="100" y="202" width="120" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Delete One"/>
                                 <connections>
                                     <action selector="deleteLastOne:" destination="SZE-fw-63k" eventType="touchUpInside" id="ufs-2N-E6q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1Z-Uz-9MH">
-                                <rect key="frame" x="127" y="272" width="102" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1Z-Uz-9MH">
+                                <rect key="frame" x="100" y="329" width="102" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Delete All"/>
                                 <connections>

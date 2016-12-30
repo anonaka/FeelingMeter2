@@ -15,6 +15,7 @@ class FmManagementViewController: UIViewController {
     @IBOutlet weak var deleteOneButton: UIButton!
     @IBOutlet weak var deleteAllButton: UIButton!
     
+    
     @IBAction func deleteLastOne(_ sender: AnyObject) {
         fmModel.deleteLastFeelingData()
         let alertController = UIAlertController(
