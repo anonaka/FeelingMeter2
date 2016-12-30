@@ -50,6 +50,7 @@ class FmGraphRootViewController : UIViewController
     
     override func  viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         // remember scroll position
+        needsSetupView = true
         xScrolPos = fmGraphScrollView.contentOffset.x / fmGraphScrollView.contentSize.width
     }
 
