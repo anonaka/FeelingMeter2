@@ -20,6 +20,8 @@ class FmHomeViewController: UIViewController, UIScrollViewDelegate {
     var seletFeelingSoundId: SystemSoundID = 0
     var movePageSoundId: SystemSoundID = 0
     
+    var currentFeelingNumber = 0
+    
     override func viewWillLayoutSubviews() {
         self.setupViews()
     }
@@ -53,8 +55,8 @@ class FmHomeViewController: UIViewController, UIScrollViewDelegate {
         self.fmHomeView.addGestureRecognizer(gr2)
         
         fmScrollView.contentSize = fmHomeView.frame.size
+        fmScrollView.contentOffset.y = fmScrollView.frame.size.height * CGFloat(currentFeelingNumber)
         fmScrollView.backgroundColor = UIColor.white
-        
         fmScrollView.isPagingEnabled = true;
         fmScrollView.showsVerticalScrollIndicator = true;
         fmScrollView.delaysContentTouches = false;
@@ -62,6 +64,11 @@ class FmHomeViewController: UIViewController, UIScrollViewDelegate {
         fmScrollView.addSubview(self.fmHomeView)
     }
 
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        currentFeelingNumber = fmHomeView.getItemNumber(fmScrollView.contentOffset)
+    }
+    
+    
     func doubleTapGestuer(_ gestureRecognizer: UITapGestureRecognizer){
         addFeeling()
     }
