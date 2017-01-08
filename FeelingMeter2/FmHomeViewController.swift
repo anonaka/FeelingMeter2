@@ -55,7 +55,7 @@ class FmHomeViewController: UIViewController, UIScrollViewDelegate {
         self.fmHomeView.addGestureRecognizer(gr2)
         
         fmScrollView.contentSize = fmHomeView.frame.size
-        fmScrollView.contentOffset.y = fmScrollView.frame.size.height * CGFloat(currentFeelingNumber)
+        fmScrollView.contentOffset.y = fmHomeView.itemSize.height * CGFloat(currentFeelingNumber)
         fmScrollView.backgroundColor = UIColor.white
         fmScrollView.isPagingEnabled = true;
         fmScrollView.showsVerticalScrollIndicator = true;

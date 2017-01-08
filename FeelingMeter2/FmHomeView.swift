@@ -69,7 +69,7 @@ class FmHomeView : UIView {
     // retrun current item view number
     // used to check in which view, swipe gesture done.
     func getItemNumber(_ offset: CGPoint) -> Int {
-        return Int(offset.y / self.itemSize.height)
+        return Int((offset.y + (self.itemSize.height / 2)) / self.itemSize.height)
     }
     
     func doFlash(_ index: Int){
