@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B6B20C01C96AA310085FC55 /* FmManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6B20BF1C96AA310085FC55 /* FmManagementViewController.swift */; };
+		0B89E7FF1E3C5811000476F2 /* iPadPro.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B89E7FE1E3C5811000476F2 /* iPadPro.png */; };
 		0B9313AF1C70072E00C8FCF3 /* LaunchImage_6p@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B9313AE1C70072E00C8FCF3 /* LaunchImage_6p@3x.png */; };
 		0B9313B21C70077500C8FCF3 /* LaunchImage_4s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B9313B01C70077500C8FCF3 /* LaunchImage_4s@2x.png */; };
 		0B9313B31C70077500C8FCF3 /* LaunchImage_5s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B9313B11C70077500C8FCF3 /* LaunchImage_5s@2x.png */; };
@@ -54,6 +55,7 @@
 		0B05CFFB1C7C0C1300E9D7C0 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		0B6B20BF1C96AA310085FC55 /* FmManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FmManagementViewController.swift; sourceTree = "<group>"; };
 		0B8270AA1C8975DD00E9AD05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		0B89E7FE1E3C5811000476F2 /* iPadPro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadPro.png; sourceTree = "<group>"; };
 		0B9313AE1C70072E00C8FCF3 /* LaunchImage_6p@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage_6p@3x.png"; sourceTree = "<group>"; };
 		0B9313B01C70077500C8FCF3 /* LaunchImage_4s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage_4s@2x.png"; sourceTree = "<group>"; };
 		0B9313B11C70077500C8FCF3 /* LaunchImage_5s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage_5s@2x.png"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				0BFBC03E1C7C116F001AC0F7 /* Localizable.strings */,
 				0BFBC0391C7C116F001AC0F7 /* InfoPlist.strings */,
 				0BEEFC1E1C70010D00668A8A /* AppDelegate.swift */,
+				0B89E7FE1E3C5811000476F2 /* iPadPro.png */,
 				0BEEFC281C70010D00668A8A /* Assets.xcassets */,
 				0BEEFC511C70016D00668A8A /* FmGraphRootViewController.swift */,
 				0BEEFC521C70016D00668A8A /* FmGraphView.swift */,
@@ -300,6 +303,7 @@
 				0BEEFC2C1C70010D00668A8A /* LaunchScreen.storyboard in Resources */,
 				0BEEFC291C70010D00668A8A /* Assets.xcassets in Resources */,
 				0B9313B51C70077C00C8FCF3 /* LaunchImage_pad@2x.png in Resources */,
+				0B89E7FF1E3C5811000476F2 /* iPadPro.png in Resources */,
 				0B9313B31C70077500C8FCF3 /* LaunchImage_5s@2x.png in Resources */,
 				0BFBC0371C7C116F001AC0F7 /* InfoPlist.strings in Resources */,
 			);
